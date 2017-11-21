@@ -6,7 +6,6 @@ source 'http://rubygems.org'
 gem 'activesupport', '4.2.8'
 
 # Jekyll
-gem 'jekyll', "3.4.0"
 
 gem 'tzinfo-data', '1.2017.3'
 
