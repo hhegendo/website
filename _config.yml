@@ -39,7 +39,7 @@ tools:
   software: "Jekyll, pandoc, MathJax, d3.js, dc.js, crossfilter"
 
 # Build settings
-gems:
+plugins:
   - 'jekyll/scholar'
   - bootstrap-sass
   - uglifier
