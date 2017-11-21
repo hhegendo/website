@@ -1,0 +1,219 @@
+---
+layout: prcq
+title: "ANS Safety Performance"
+---
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script><script type="text/javascript"> // load the visualisation API
+google.load('visualization', '1', { packages: ['corechart', 'controls'] });
+</script>
+<script type="text/javascript">
+
+function drawVisualization()
+ {
+
+// SAFETY - total accidents - YY - CHART
+      var crt_saf_acc_YY = new google.visualization.ChartWrapper({
+         chartType: 'ComboChart',
+         containerId: 'crt_saf_acc_YY',
+         dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1LLmxl-dEBtNQEGRjX9wqY2umfMdeO6-rgwYyIGx-J6E/gviz/tq?sheet=saf&range=A5:D15&headers=1&tq=',
+         options: {
+            title: 'Accidents',
+            titlePosition: 'out',
+            titleTextStyle: { color: 'grey', fontSize: 16,},
+            chartArea: { left: 40, top: 60, width: '80%', height: '55%' },
+            legend: {
+               position: 'top',
+               maxLines: 2,
+               textStyle: {color: 'grey', fontSize: 10 }
+            },
+            isStacked : 'true',
+            series: {
+               0: { type: 'bars', color: '4F81BD', targetAxisIndex: 0 },
+               1: { type: 'bars', color: 'DCE6F2', targetAxisIndex: 0 },
+               2: { type: 'lines', color: 'C0504D', lineWidth: 0, pointSize: 12, targetAxisIndex: 1 }
+            },
+            vAxes:{
+               0: {
+                  title:'count',
+                  titleTextStyle: { color: 'grey', fontSize: 11 },
+                  textStyle: { color: 'grey' }
+               },
+               1: {
+                  title: '% of fatal accidents',
+                  titleTextStyle: { color: 'C0504D', fontSize: 11 },
+                  textStyle: { color:'C0504D' }
+               }
+            },
+            hAxis: {
+               titleTextStyle: { color: 'grey', fontSize: 11 },
+               type: 'string',
+               slantedTextAngle: 40,
+               textStyle: { fontSize: 11 }
+            }
+         },
+         view: {columns: [0, 2, 1, 3] }
+      });
+      crt_saf_acc_YY.draw();
+
+// SAFETY - accidents with ATM contribution- YY - CHART [EU_YY]
+      var crt_saf_accatm_YY = new google.visualization.ChartWrapper({
+         chartType: 'ComboChart',
+         containerId: 'crt_saf_accatm_YY',
+         dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1LLmxl-dEBtNQEGRjX9wqY2umfMdeO6-rgwYyIGx-J6E/gviz/tq?sheet=saf&range=A23:D33&headers=1&tq=',
+         options: {
+            title: 'Accidents with ATM contribution',
+            titlePosition: 'out',
+            titleTextStyle: { color: 'grey', fontSize: 16 },
+            chartArea: { left: 40, top: 60, width: '80%', height: '55%' },
+            legend: {
+               position: 'top',
+               maxLines: 2,
+               textStyle: { color: 'grey', fontSize: 10 }
+            },
+            isStacked : 'true',
+            series: {
+               0: { type: 'bars', color: '4F81BD', targetAxisIndex: 0 },
+               1: { type: 'bars', color: 'DCE6F2', targetAxisIndex: 0 },
+               2: { type: 'lines', color: 'C0504D', lineWidth: 0, pointSize: 12, targetAxisIndex: 1 }
+            },
+            vAxes: {
+               0: {
+                  title: 'count',
+                  titleTextStyle: { color: 'grey', fontSize: 11 },
+                  textStyle: { color: 'grey' }
+               },
+               1: {
+                  title: '% of accidents with ATM contribution',
+                  titleTextStyle: { color: 'C0504D', fontSize: 11 },
+                  textStyle: { color:'C0504D' }
+               }
+            },
+            hAxis: {
+               titleTextStyle: { color: 'grey', fontSize: 11 },
+               type: 'string',
+               slantedTextAngle: 40,
+               textStyle: { fontSize: 11 }
+            }
+         },
+         view: { columns: [0, 1, 2, 3] }
+      });
+      crt_saf_accatm_YY.draw(); 
+
+}
+google.setOnLoadCallback(drawVisualization)
+</script>
+
+<h3 class="page-header">{% img prcq-safety.png magick:resize:60x60 alt:'Safety' style:'margin-right\:3px' %} {{ page.title }}</h3>
+
+<table class = "table">
+   <thead>
+      <tr>
+         <th>Period</th>
+         <th>Area</th>
+         <th>Update rate</th>
+         <th>Last update</th>
+         <th>Source</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class = "active">
+         <td>Jan-Dec</td>
+         <td><a href='{{"/references/definition/eurocontrol_area.html"| prepend: site.baseurl | prepend: site.url }}'>EUROCONTROL Area</a></td>
+         <td>Annually</td>
+         <td>28-April-2017</td>
+         <td><a href="http://www.eurocontrol.int" target="_blank">EUROCONTROL</a></td>
+      </tr>
+   </tbody>
+</table>
+
+<table class = "table">
+   <tbody> 
+      <tr class = "active">
+         <td><span style="color: rgb(192, 80, 77);">
+         Please note that the 2016 data is still preliminary (P).
+         </span> </td>
+      </tr>
+   </tbody>
+</table>
+
+<h3 class="sub-header">Accidents (fixed wing, weight > 2250 kg MTOW)</h3>
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+  <div id="crt_saf_acc_YY"></div>
+</div>
+<div class="col-xs-6 col-sm-6 placeholder">
+  <div id="crt_saf_accatm_YY"></div>
+</div>
+</div>
+
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+According to the preliminary data, there were 67 accidents in the EUROCONTROL area in 2016 of which 15 were fatal.<br>
+</div></div></div>
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+ There was no reported accident with direct ATM contribution in 2016 (P), compared to one reported accident with direct ATM 
+ contribution in 2015 (non fatal ground collision).
+</div></div></div>
+</div>
+
+<h3 class="sub-header">ATM related incidents</h3>
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+<h4><a href='{{"/references/acronym/smi.html"| prepend: site.baseurl | prepend: site.url }}'>Separation Minima Infringements (SMI)</a></h4>
+<div id="crt_saf_smi_YY"></div>
+
+</div>
+<div class="col-xs-6 col-sm-6 placeholder">
+<h4><a href='{{"/references/acronym/upa.html"| prepend: site.baseurl | prepend: site.url }}'>Unauthorised Penetration of Airspace (UPAs)</a></h4>
+<div id="crt_saf_upa_YY"></div>
+</div>
+</div>
+
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+ The preliminary data for 2016 indicates that the number of reported risk bearing SMIs (Severity A+B) increased in 2016.
+ Overall, 12.5% of all reported SMIs in 2016 were categorised as risk bearing which represents an increase on 2015 (10.3%).
+</div></div>
+</div>
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+ Following the increase in 2015, the number of reported risk bearing UPAs (Severity A+B) decreased in 2016 (P).
+ As a result, the share of risk bearing UPAs decreased from 2.0% to 1.7% in 2016.
+</div></div>
+</div>
+</div>
+
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+<h4><a href='{{"/references/acronym/ri.html"| prepend: site.baseurl | prepend: site.url }}'>Runway Incursions (RIs)</a></h4>
+<div id="crt_saf_ri_YY"></div>
+</div>
+<div class="col-xs-6 col-sm-6 placeholder">
+<h4>ATM Specific Occurrences (ATM-S)</h4>
+
+<div id="crt_saf_aso_YY"></div>
+</div>
+</div>
+
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+The reported risk bearing RIs (Severity A+B) increased in 2016 (P).
+At the same time, the share of risk bearing RIs decreased from 6.7% to 6.0% in 2016 (P).
+</div></div>
+</div>
+<div class="col-xs-6 col-sm-6 placeholder">
+<div class="panel panel-info"><div class="panel-heading">
+The total number of risk bearing ATM-S decreased notably in 2016 (P).
+</div></div>
+</div>
+</div>
+
+
+{% javascript crt_saf_smi_YY %}
+{% javascript crt_saf_upa_YY %}
+{% javascript crt_saf_ri_YY %}
+{% javascript crt_saf_aso_YY %}
